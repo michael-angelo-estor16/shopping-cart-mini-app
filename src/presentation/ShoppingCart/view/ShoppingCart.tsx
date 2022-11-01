@@ -9,12 +9,14 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 const ShoppingCart = (props: any) => {
-  const { dataLoad, dataIn } = props;
-  const { setProductList, setCurrencyCharacter } = useShoppingCart();
+  const { dataLoad, dataIn, dataOut } = props;
+  const { setProductList, setCurrencyCharacter, getDataOut } =
+    useShoppingCart();
 
   useEffect(() => {
     setProductList(dataLoad.products);
     setCurrencyCharacter(dataIn.currency.toUpperCase());
+    dataOut(getDataOut);
   });
 
   return (
