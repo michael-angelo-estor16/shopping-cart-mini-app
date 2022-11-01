@@ -31,7 +31,13 @@ export const Thumbnail = styled(Box)({
   marginTop: '30px',
 });
 
-const List = ({ products, currency, handleRemoveItem, subTotal }: any) => {
+const List = ({
+  currency,
+  products,
+  handleUpdateQuantity,
+  handleRemoveItem,
+  subTotal,
+}: any) => {
   const displayProducts =
     products.length > 0 ? (
       products.map((product: any) => (
@@ -49,22 +55,31 @@ const List = ({ products, currency, handleRemoveItem, subTotal }: any) => {
               alignItems={'center'}
               gap={'20px'}
             >
-              <Button variant={'contained'}>+</Button>
+              <Button
+                variant={'outlined'}
+                onClick={() => handleUpdateQuantity(product.id, 'increase')}
+              >
+                {'+'}
+              </Button>
               <Typography>{product.qty}</Typography>
-              <Button color="error" variant={'contained'}>
+              <Button
+                color="error"
+                variant={'outlined'}
+                onClick={() => handleUpdateQuantity(product.id, 'decrease')}
+              >
                 {'-'}
               </Button>
             </Box>
           </Column>
           <Column>
             <Typography>
-              {currency} {product.price}
+              {currency} {product.price.toLocaleString()}
             </Typography>
           </Column>
           <Column>
             <Typography>
               {currency}
-              {product.total}
+              {product.total.toLocaleString()}
             </Typography>
           </Column>
           <Column>

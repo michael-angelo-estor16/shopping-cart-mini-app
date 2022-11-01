@@ -3,12 +3,17 @@ import useShoppingCartList from '../../../model/useShoppingCartList';
 import List from '../component/List';
 
 export const ShoppingCartList = () => {
-  const { getProducts, currency, removeOne, productList, subTotal } =
-    useShoppingCartList();
+  const {
+    currency,
+    getProducts,
+    updateProductQuantity,
+    removeOne,
+    productList,
+    subTotal,
+  } = useShoppingCartList();
 
   useEffect(() => {
     getProducts();
-    console.log(productList);
   }, [productList]);
 
   return (
@@ -17,6 +22,11 @@ export const ShoppingCartList = () => {
       currency={currency}
       subTotal={subTotal}
       handleRemoveItem={(id: any) => removeOne(id)}
+      handleUpdateQuantity={(
+        id: number,
+        type: 'increase' | 'decrease' | 'update',
+        quantity?: number
+      ) => updateProductQuantity(id, type, quantity)}
     />
   );
 };
