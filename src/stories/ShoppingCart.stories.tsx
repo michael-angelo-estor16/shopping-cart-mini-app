@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ShoppingCart } from '../mapp';
-import { dummyData } from '../mapp/dummyData';
+import { ShoppingCart } from '../index';
+import { dummyData } from '../constants/dummyData';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -24,7 +24,7 @@ ShoppingCartView.args = {
   dataIn: {
     containerStyle: {
       minWidth: '500px',
-      background: 'lightblue',
+
       minHeight: '500px',
       height: 'auto',
     },
