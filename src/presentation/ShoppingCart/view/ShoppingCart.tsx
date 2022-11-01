@@ -3,13 +3,18 @@ import { HOCProvider } from '../../../provider';
 import { StyledContainer } from '../component/Styled';
 import { ShoppingCartList } from '../../ProductList/view/ShoppingCartList';
 import useShoppingCart from '../../../model/useShoppingCart';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const ShoppingCart = (props: any) => {
   const { dataLoad, dataIn } = props;
-  const { setProductList } = useShoppingCart();
+  const { setProductList, setCurrencyCharacter } = useShoppingCart();
 
   useEffect(() => {
     setProductList(dataLoad.products);
+    setCurrencyCharacter(dataIn.currency.toUpperCase());
   });
 
   return (

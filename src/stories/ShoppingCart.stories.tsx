@@ -22,6 +22,7 @@ ShoppingCartView.args = {
     products: dummyData,
   },
   dataIn: {
+    currency: 'PHP',
     containerStyle: {
       minWidth: '500px',
 

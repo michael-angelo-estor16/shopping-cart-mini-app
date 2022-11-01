@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const useShoppingCartList = () => {
   const productList = useSelector((state: any) => state.products.value);
+  const currency = useSelector((state: any) => state.currency.value);
   const [products, setProducts] = useState([]);
 
   function getProducts() {
@@ -12,6 +13,7 @@ const useShoppingCartList = () => {
   return {
     products,
     getProducts,
+    currency,
   };
 };
 
