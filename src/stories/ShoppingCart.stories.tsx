@@ -30,5 +30,5 @@ ShoppingCartView.args = {
       height: 'auto',
     },
   },
-  dataOut: {},
+  dataOut: (arg0: any) => void,
 };
