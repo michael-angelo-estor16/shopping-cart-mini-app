@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import { styled } from '@mui/system';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
+import { Input } from '@mui/material';
 export const StyledContainer = styled(Box)({
   width: '100%',
   display: 'flex',
@@ -152,7 +153,7 @@ const List = ({
         </Column>
         <Column>
           <Typography variant="h4" fontWeight={'bold'}>
-            {currency} {subTotal}
+            {currency} {subTotal.toLocaleString()}
           </Typography>
         </Column>
         <Column></Column>

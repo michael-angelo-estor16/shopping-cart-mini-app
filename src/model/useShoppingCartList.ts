@@ -32,7 +32,7 @@ const useShoppingCartList = () => {
     const targetItem: any = productList.find(
       (product: any) => product.id === id
     );
-    console.log(type);
+
     if (type === 'increase') {
       // run increase dispatcher
       const payload = { id: targetItem.id };
