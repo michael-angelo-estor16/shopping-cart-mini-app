@@ -23,7 +23,7 @@ export const productsSlice = createSlice({
       state.value.products = action.payload;
       //This will update the subtotal of all the item prices
       state.value.subTotal = action.payload
-        .reduce((total: number, object) => {
+        .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
@@ -35,7 +35,7 @@ export const productsSlice = createSlice({
       );
       //This will update the subtotal of all of the remaining item prices
       state.value.subTotal = state.value.products
-        .reduce((total: number, object) => {
+        .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
@@ -57,7 +57,7 @@ export const productsSlice = createSlice({
       });
       //This will update the subtotal of all of the remaining item prices
       state.value.subTotal = state.value.products
-        .reduce((total: number, object) => {
+        .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
@@ -76,7 +76,7 @@ export const productsSlice = createSlice({
       });
       //This will update the subtotal of all of the remaining item prices
       state.value.subTotal = state.value.products
-        .reduce((total: number, object) => {
+        .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);

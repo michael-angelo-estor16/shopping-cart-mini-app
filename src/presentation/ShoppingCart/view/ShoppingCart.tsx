@@ -16,8 +16,7 @@ const ShoppingCart = (props: any) => {
   useEffect(() => {
     setProductList(dataLoad.products);
     setCurrencyCharacter(dataIn.currency.toUpperCase());
-    dataOut(getDataOut);
-  });
+  }, []);
 
   return (
     <StyledContainer sx={dataIn.containerStyle}>
