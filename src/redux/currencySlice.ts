@@ -12,8 +12,8 @@ export const currencySlice = createSlice({
   name: 'currency',
   initialState,
   reducers: {
-    setCurrency: (state: any, action: PayloadAction<any>) => {
-      state.value = action.payload;
+    setCurrency: (state: any, action: PayloadAction<string>) => {
+      state = { ...state, value: action.payload };
     },
   },
 });
