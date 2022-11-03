@@ -4,6 +4,10 @@ export type TIdPayload = {
   id: number;
 };
 
+export interface ICurrencyState {
+  value: string;
+}
+
 export interface IProduct {
   id: number;
   title: string;

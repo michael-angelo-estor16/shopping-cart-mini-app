@@ -1,6 +1,6 @@
 # Shopping Cart Mini App
 
-Web Admin Table List Mini-app.
+Sample Shopping Cart List Mini-app.
 
 [![repository](https://img.shields.io/badge/repo-github-orange)](https://github.com/michael-angelo-estor16/shopping-cart-mini-app)
 
@@ -25,12 +25,33 @@ Web Admin Table List Mini-app.
 npm run storybook
 ```
 
+## Installation
+
+```sh
+npm i shopping-cart-mini-app
+```
+
+## Usage
+
+```sh
+import {ShoppingCart} from 'shopping-cart-mini-app'
+
+<ShoppingCart dataLoad={dataLoad} dataIn={dataIn} dataOut={dataOut}/>
+```
+
 ## Types
 
 ```sh
 {
   dataLoad: {
-    products: {}[],
+    products: {
+      id: number;
+      title: string;
+      price: number;
+      qty: number;
+      image: string;
+      total: number;
+      }[],
   },
   dataIn: {
     currency: string,

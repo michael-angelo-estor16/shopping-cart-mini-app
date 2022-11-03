@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ICurrencyState } from 'src/types/shopping-cart.modules';
+
+interface ICurrencyState {
+  value: string;
+}
 
 const initialState: ICurrencyState = {
   value: '₱',
@@ -9,7 +12,7 @@ export const currencySlice = createSlice({
   name: 'currency',
   initialState,
   reducers: {
-    setCurrency: (state: ICurrencyState, action: PayloadAction<string>) => {
+    setCurrency: (state: ICurrencyState, action: PayloadAction<any>) => {
       state = { ...state, value: action.payload };
     },
   },

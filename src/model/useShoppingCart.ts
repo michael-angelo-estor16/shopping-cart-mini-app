@@ -2,16 +2,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '../redux/productsSlice';
 import { setCurrency } from '../redux/currencySlice';
 import getSymbolFromCurrency from 'currency-symbol-map';
-import { IProductList } from 'src/types/shopping-cart.modules';
+import { TProductList } from 'src/types/shopping-cart.modules';
 const useShoppingCart = () => {
   const dispatch = useDispatch();
   const dataOut = useSelector((state: any) => state);
-  function setProductList(list: IProductList) {
+  function setProductList(list: TProductList) {
     dispatch(setProducts(list));
   }
 
   function setCurrencyCharacter(currency: string) {
-    setCurrency(getSymbolFromCurrency(currency));
+    const currencySymbol: string | undefined = getSymbolFromCurrency(currency);
+    dispatch(setCurrency(currencySymbol));
   }
 
   function getDataOut() {
