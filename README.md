@@ -89,6 +89,10 @@ export default App;
 
 ```
 
+## Screenshot
+
+![Alt text](./src/assets/Screenshot%202022-11-03%20165254.png 'Title')
+
 ## Types
 
 ```sh
