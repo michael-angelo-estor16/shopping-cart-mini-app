@@ -29,15 +29,63 @@ npm run storybook
 ## Installation
 
 ```sh
-npm i shopping-cart-mini-app
+npm i shopping-cart-mini-app-serino
 ```
 
 ## Usage
 
 ```sh
-import {ShoppingCart} from 'shopping-cart-mini-app'
+import React from 'react'
+import {ShoppingCart} from 'shopping-cart-mini-app-serino'
 
-<ShoppingCart dataLoad={dataLoad} dataIn={dataIn} dataOut={dataOut}/>
+const App = ()=>{
+
+  const dataLoad = {
+     products: [
+                {
+                  id: 1,
+                  title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+                  price: 109.95,
+                  qty: 1,
+                  image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+                  total: 109.5,
+                },
+                {
+                  id: 2,
+                  title: 'Mens Casual Premium Slim Fit T-Shirts ',
+                  price: 22.3,
+                  qty: 1,
+                  image:
+                    'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+                  total: 22.3,
+                },
+     ]
+  }
+
+  const dataIn = {
+      currency: 'PHP',
+      containerStyle: {
+        minWidth: '500px',
+
+        minHeight: '500px',
+        height: 'auto',
+      },
+  }
+
+  const dataOut = (outputData:any) => console.log(outputData)
+
+
+  return(
+    <React.Fragment>
+      <ShoppingCart dataLoad={dataLoad} dataIn={dataIn} dataOut={dataOut}/>
+    </React.Fragment>)
+
+
+
+}
+
+export default App;
+
 ```
 
 ## Types

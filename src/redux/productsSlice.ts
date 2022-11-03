@@ -32,7 +32,7 @@ export const productsSlice = createSlice({
       state.value = {
         ...state.value,
         products: listOfProducts,
-        subTotal: +subTotalCounter,
+        subTotal: Number(subTotalCounter),
       };
     },
     removeProduct: (state: IProductState, action: PayloadAction<number>) => {
@@ -41,17 +41,21 @@ export const productsSlice = createSlice({
         (item: any) => item.id !== action.payload
       );
 
-      const subTotalCounter = [...state.value.products]
+      const subTotalCounter = listOfFinalProducts
         .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
 
       //This will remove an item in the list and update the subtotal of all of the remaining item prices
-      state.value = {
-        ...state.value,
-        products: listOfFinalProducts,
-        subTotal: +subTotalCounter,
+
+      return {
+        ...state,
+        value: {
+          ...state.value,
+          products: [...listOfFinalProducts],
+          subTotal: Number(subTotalCounter),
+        },
       };
     },
     updateQuantity: (state: any, action: PayloadAction<any>) => {
@@ -74,17 +78,20 @@ export const productsSlice = createSlice({
         }
       );
 
-      const subTotalCounter: string = [...state.value.products]
+      const subTotalCounter: string = updatedQuantity
         .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
 
       // Will increase a speicific item quantity and update the subtotal of all of the remaining item prices
-      state.value = {
-        ...state.value,
-        products: updatedQuantity,
-        subTotal: +subTotalCounter,
+      return {
+        ...state,
+        value: {
+          ...state.value,
+          products: [...updatedQuantity],
+          subTotal: Number(subTotalCounter),
+        },
       };
     },
     decreaseQuantity: (
@@ -104,17 +111,20 @@ export const productsSlice = createSlice({
         }
       );
 
-      const subTotalCounter: string = [...state.value.products]
+      const subTotalCounter: string = updatedQuantity
         .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
         .toFixed(2);
 
       // Will increase a speicific item quantity and update the subtotal of all of the remaining item prices
-      state.value = {
-        ...state.value,
-        products: updatedQuantity,
-        subTotal: +subTotalCounter,
+      return {
+        ...state,
+        value: {
+          ...state.value,
+          products: [...updatedQuantity],
+          subTotal: Number(subTotalCounter),
+        },
       };
     },
   },

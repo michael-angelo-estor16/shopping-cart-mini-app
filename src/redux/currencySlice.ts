@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { ActionTypes } from '@mui/base';
 
 interface ICurrencyState {
   value: string;
@@ -13,7 +14,11 @@ export const currencySlice = createSlice({
   initialState,
   reducers: {
     setCurrency: (state: ICurrencyState, action: PayloadAction<any>) => {
-      state = { ...state, value: action.payload };
+      return {
+        ...state,
+        value: action.payload,
+      };
+      // state = { ...state, value: action.payload };
     },
   },
 });
