@@ -29,14 +29,14 @@ npm run storybook
 ## Installation
 
 ```sh
-npm i shopping-cart-mini-app-serino
+npm i shopping-cart-mini-app-serino-v2
 ```
 
 ## Usage
 
 ```sh
 import React from 'react'
-import {ShoppingCart} from 'shopping-cart-mini-app-serino'
+import {ShoppingCart} from 'shopping-cart-mini-app-serino-v2'
 
 const App = ()=>{
 
