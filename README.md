@@ -11,6 +11,7 @@ Sample Shopping Cart List Mini-app.
 ## Changelogs
 
 ```sh
+1.2.6 Added node version used in package
 1.2.5 Updated setProducts reducer
 1.2.4 Updated reducer immutability
 1.2.3 Updated docs
@@ -68,7 +69,6 @@ const App = ()=>{
       currency: 'PHP',
       containerStyle: {
         minWidth: '500px',
-
         minHeight: '500px',
         height: 'auto',
       },
