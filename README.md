@@ -122,3 +122,9 @@ export default App;
 "react": "^17.0.2",
 "react-dom": "^17.0.2"
 ```
+
+## Node Version
+
+```sh
+v14.18.2
+```
