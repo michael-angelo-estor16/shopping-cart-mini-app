@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { HOCProvider } from '../../../provider';
 import { StyledContainer } from '../component/Styled';
-import { ShoppingCartList } from '../../ProductList/view/ShoppingCartList';
+import { ShoppingCartList } from '../../product-list/view/ShoppingCartList';
 import useShoppingCart from '../../../model/useShoppingCart';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { IData } from 'src/types/shopping-cart.modules';
 
-const ShoppingCart = (props: any) => {
-  const { dataLoad, dataIn, dataOut } = props;
+const ShoppingCart = ({ dataLoad, dataIn, dataOut }: IData) => {
   const { setProductList, setCurrencyCharacter, getDataOut } =
     useShoppingCart();
 
@@ -20,7 +20,7 @@ const ShoppingCart = (props: any) => {
 
   return (
     <StyledContainer sx={dataIn.containerStyle}>
-      <ShoppingCartList />
+      <ShoppingCartList dataOut={dataOut} />
     </StyledContainer>
   );
 };

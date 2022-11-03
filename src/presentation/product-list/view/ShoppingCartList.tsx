@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import useShoppingCartList from '../../../model/useShoppingCartList';
 import List from '../component/List';
 
-export const ShoppingCartList = () => {
+export const ShoppingCartList = ({ dataOut }: any) => {
   const {
     currency,
     getProducts,
@@ -10,10 +10,12 @@ export const ShoppingCartList = () => {
     removeOne,
     productList,
     subTotal,
+    dataOutState,
   } = useShoppingCartList();
 
   useEffect(() => {
     getProducts();
+    dataOut(dataOutState);
   }, [productList]);
 
   return (

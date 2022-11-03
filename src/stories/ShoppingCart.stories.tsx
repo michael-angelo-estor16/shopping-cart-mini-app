@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ShoppingCart } from '../presentation/';
-import { dummyData } from '../constants/dummyData';
+import { dummyData } from '../constants/constants';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -30,5 +30,5 @@ ShoppingCartView.args = {
       height: 'auto',
     },
   },
-  dataOut: '',
+  dataOut: (args: 0) => console.log(args),
 };

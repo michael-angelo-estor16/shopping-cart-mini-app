@@ -11,6 +11,8 @@ Web Admin Table List Mini-app.
 ## Changelogs
 
 ```sh
+1.2.2 Added data load on mini app
+1.2.1 Added types to the payloads
 1.2.0 Updated redux immutability
 1.1.1 Updated index files
 1.1.0 Project dependency setup

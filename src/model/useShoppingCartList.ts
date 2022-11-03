@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { TIdPayload } from 'src/types/shopping-cart.modules';
 import {
   setProducts,
   removeProduct,
@@ -10,6 +11,7 @@ import {
 
 const useShoppingCartList = () => {
   const dispatch = useDispatch();
+  const dataOutState = useSelector((state: any) => state.products.value);
   const productList = useSelector(
     (state: any) => state.products.value.products
   );
@@ -40,7 +42,7 @@ const useShoppingCartList = () => {
     } else if (type === 'decrease') {
       // run decrease dispatcher if the quantity is not equal to one
       if (targetItem.qty > 1) {
-        const payload = { id: targetItem.id };
+        const payload: TIdPayload = { id: targetItem.id };
         dispatch(decreaseQuantity(payload));
       }
     } else {
@@ -57,6 +59,7 @@ const useShoppingCartList = () => {
     productList,
     subTotal,
     updateProductQuantity,
+    dataOutState,
   };
 };
 

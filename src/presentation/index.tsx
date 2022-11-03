@@ -1,3 +1,3 @@
-import { default as ShoppingCart } from './ShoppingCart/view/ShoppingCart';
+import { default as ShoppingCart } from './shopping-cart/view/ShoppingCart';
 
 export { ShoppingCart };

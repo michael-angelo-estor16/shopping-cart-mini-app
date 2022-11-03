@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import {
+  IProductState,
+  TProductList,
+  TIdPayload,
+} from './../types/shopping-cart.modules';
 
-export interface ProductState {
-  value: {
-    products: [];
-    subTotal: number;
-  };
-}
-
-const initialState: ProductState = {
+const initialState: IProductState = {
   value: {
     products: [],
     subTotal: 0.0,
@@ -18,7 +16,10 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProducts: (state: any, action: PayloadAction<any>) => {
+    setProducts: (
+      state: IProductState,
+      action: PayloadAction<TProductList>
+    ) => {
       const listOfProducts = [...action.payload];
 
       const subTotalCounter = listOfProducts
@@ -31,10 +32,10 @@ export const productsSlice = createSlice({
       state.value = {
         ...state.value,
         products: listOfProducts,
-        subTotal: subTotalCounter,
+        subTotal: +subTotalCounter,
       };
     },
-    removeProduct: (state: any, action: PayloadAction<any>) => {
+    removeProduct: (state: IProductState, action: PayloadAction<number>) => {
       // Create a deep copy of a state
       const listOfFinalProducts = [...state.value.products].filter(
         (item: any) => item.id !== action.payload
@@ -50,14 +51,17 @@ export const productsSlice = createSlice({
       state.value = {
         ...state.value,
         products: listOfFinalProducts,
-        subTotal: subTotalCounter,
+        subTotal: +subTotalCounter,
       };
     },
     updateQuantity: (state: any, action: PayloadAction<any>) => {
       //Will update a specific items in the list
     },
-    increaseQuantity: (state: any, action: PayloadAction<any>) => {
-      const updatedQuantity: {}[] = [...state.value.products].map(
+    increaseQuantity: (
+      state: IProductState,
+      action: PayloadAction<TIdPayload>
+    ) => {
+      const updatedQuantity: TProductList = [...state.value.products].map(
         (product: any) => {
           if (product.id === action.payload.id) {
             return {
@@ -70,7 +74,7 @@ export const productsSlice = createSlice({
         }
       );
 
-      const subTotalCounter: number = [...state.value.products]
+      const subTotalCounter: string = [...state.value.products]
         .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
@@ -80,22 +84,27 @@ export const productsSlice = createSlice({
       state.value = {
         ...state.value,
         products: updatedQuantity,
-        subTotal: subTotalCounter,
+        subTotal: +subTotalCounter,
       };
     },
-    decreaseQuantity: (state: any, action: PayloadAction<any>) => {
-      const updatedQuantity = [...state.value.products].map((product: any) => {
-        if (product.id === action.payload.id) {
-          return {
-            ...product,
-            qty: product.qty - 1,
-            total: product.price * (product.qty - 1),
-          };
+    decreaseQuantity: (
+      state: IProductState,
+      action: PayloadAction<TIdPayload>
+    ) => {
+      const updatedQuantity: TProductList = [...state.value.products].map(
+        (product: any) => {
+          if (product.id === action.payload.id) {
+            return {
+              ...product,
+              qty: product.qty - 1,
+              total: product.price * (product.qty - 1),
+            };
+          }
+          return product;
         }
-        return product;
-      });
+      );
 
-      const subTotalCounter = [...state.value.products]
+      const subTotalCounter: string = [...state.value.products]
         .reduce((total: number, object: any) => {
           return total + object.total;
         }, 0)
@@ -105,7 +114,7 @@ export const productsSlice = createSlice({
       state.value = {
         ...state.value,
         products: updatedQuantity,
-        subTotal: subTotalCounter,
+        subTotal: +subTotalCounter,
       };
     },
   },
