@@ -11,6 +11,7 @@ Sample Shopping Cart List Mini-app.
 ## Changelogs
 
 ```sh
+1.2.3 Updated docs
 1.2.2 Added data load on mini app
 1.2.1 Added types to the payloads
 1.2.0 Updated redux immutability
