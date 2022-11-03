@@ -29,10 +29,13 @@ export const productsSlice = createSlice({
         .toFixed(2);
 
       //This will set the list in state and update the subtotal of all the item prices
-      state.value = {
-        ...state.value,
-        products: listOfProducts,
-        subTotal: Number(subTotalCounter),
+      return {
+        ...state,
+        value: {
+          ...state.value,
+          products: [...listOfProducts],
+          subTotal: Number(subTotalCounter),
+        },
       };
     },
     removeProduct: (state: IProductState, action: PayloadAction<number>) => {
